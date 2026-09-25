@@ -431,66 +431,6 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 0
-      m_SubKind: 
   - m_BuildTarget: tvOS
     m_Icons:
     - m_Textures: []
@@ -831,7 +771,25 @@ PlayerSettings:
   webWasm2023: 1
   webEnableSubmoduleStrippingCompatibility: 0
   webProgressiveAssetLoading: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    EmbeddedLinux: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    GameCoreScarlett: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    GameCoreXboxOne: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    Kepler: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    LinuxHeadlessSimulation: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    Nintendo Switch: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    Nintendo Switch 2: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    PS4: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    PS5: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    QNX: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    Standalone: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    VisionOS: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    WebGL: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    Windows Store Apps: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    XboxOne: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    iPhone: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
+    tvOS: DOTWEEN;DOTWEEN_NOPHYSICS;DOTWEEN_NOPHYSICS2D
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
