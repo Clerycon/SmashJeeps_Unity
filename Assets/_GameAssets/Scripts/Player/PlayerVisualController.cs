@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerVehicleVisualController : MonoBehaviour
+public class PlayerVisualController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

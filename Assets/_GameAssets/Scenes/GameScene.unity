@@ -620,7 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1433517461}
   m_Layer: 0
-  m_Name: JeepVisual
+  m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 4283664257034538379}
   - component: {fileID: 4283664257034538377}
   m_Layer: 0
-  m_Name: Jeep
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,9 +1182,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4283664257034441128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd5860285c644f458cfc2434550b2b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3159898df5a895f4fa508cb75a31822a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerVehicleVisualController
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualController
 --- !u!4 &4283664257034538384
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,9 +1209,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4283664257034441128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3020ec56e422d2b4796703dab1f3f3c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ef68b6ae08dc3d4db708e6b053eeabd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerVehicleController
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  _playerRigidbody: {fileID: 4283664257034538377}
+  _playerCollider: {fileID: 4283664257034538379}
 --- !u!4 &4283664257034538392
 Transform:
   m_ObjectHideFlags: 0
