@@ -26,6 +26,10 @@ public class VehicleSettingsSO : ScriptableObject
     [SerializeField] private float _acceleratePower;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _maxReverseSpeed;
+    [SerializeField] private float _brakesPower;
+
+    [Header("Resistance")]
+    [SerializeField] private float _airResistance;
     
 
     public float WheelsPaddingX => _wheelsPaddingX;
@@ -44,5 +48,8 @@ public class VehicleSettingsSO : ScriptableObject
     public float  AcceleratePower => _acceleratePower;
     public float  MaxSpeed => _maxSpeed;
     public float  MaxReverseSpeed => _maxReverseSpeed;
+    public float  BrakesPower => _brakesPower;
+
+    public float  AirResistance => _airResistance;
 
 }

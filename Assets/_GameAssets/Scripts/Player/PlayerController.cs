@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
         WheelType.BackRight
     };
 
+    private static readonly WheelType[] _backWheels = new WheelType[]
+    {
+        WheelType.BackLeft,
+        WheelType.BackRight
+    };
+
     private Dictionary<WheelType, SpringData> _sprintDatas = new Dictionary<WheelType, SpringData>();
 
     private float _steerInput;
@@ -46,6 +52,8 @@ public class PlayerController : MonoBehaviour
         UpdateSuspension();
         UpdateSteering();
         UpdateAcceleration();
+        UpdateBrakes();
+        UpdateAirResistance();
     }
 
     private void SetSteerInput(float steerInput)
@@ -122,6 +130,63 @@ public class PlayerController : MonoBehaviour
             _playerRigidbody.AddForceAtPosition(_accelerateInput * wheelForward * _vehicleSettings.AcceleratePower, 
                 position);
         }
+    }
+
+    private void UpdateBrakes()
+    {
+        float forwardSpeed = Vector3.Dot(transform.forward, _playerRigidbody.linearVelocity);
+        float speed = Mathf.Abs(forwardSpeed);
+        float brakesRatio;
+
+        const float ALMOST_STOPPING_SPEED = 2f;
+        bool almostStopping = speed < ALMOST_STOPPING_SPEED;
+
+        if (almostStopping)
+        {
+            brakesRatio = 1f;
+        }
+        else
+        {
+            bool accelerateContrary =
+                !Mathf.Approximately(_accelerateInput, 0f) && 
+                Vector3.Dot(_accelerateInput * transform.forward, _playerRigidbody.linearVelocity) < 0f;
+
+            if (accelerateContrary)
+            {
+                brakesRatio = 1f;
+            }
+            else if(Mathf.Approximately(_accelerateInput, 0f))
+            {
+                brakesRatio = 0.1f;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        foreach(WheelType wheelType in _backWheels)
+        {
+            if (!IsGrounded(wheelType))
+            {
+                continue;
+            }
+
+            Vector3 springPosition = GetSpringPosition(wheelType);
+            Vector3 rollDirection = GetWheelRollDirection(wheelType);
+            float rollVelocity = Vector3.Dot(rollDirection, _playerRigidbody.GetPointVelocity(springPosition));
+            float desiredVelocityChange = -rollVelocity * brakesRatio * _vehicleSettings.BrakesPower;
+            float desiredAcceleration = desiredVelocityChange / Time.fixedDeltaTime;
+            Vector3 force = desiredAcceleration * _vehicleSettings.TireMass * rollDirection;
+            _playerRigidbody.AddForceAtPosition(force, GetWheelTorquePosition(wheelType));
+            
+        }
+
+    }
+
+    private void UpdateAirResistance()
+    {
+        _playerRigidbody.AddForce(_playerCollider.size.magnitude * -_playerRigidbody.linearVelocity * _vehicleSettings.AirResistance);
     }
 
     private void CastSpring(WheelType wheelType)
