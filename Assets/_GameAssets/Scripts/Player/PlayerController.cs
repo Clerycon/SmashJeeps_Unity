@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BoxCollider _playerCollider;
     [SerializeField] private VehicleSettingsSO _vehicleSettings;
 
+
+    public Vector3 Forward => transform.forward;
+    public Vector3 Velocity => _playerRigidbody.linearVelocity;
+    public VehicleSettingsSO VehicleSettings => _vehicleSettings;
+
     private void Awake()
     {
         foreach(WheelType wheelType in _wheels)
@@ -288,6 +293,11 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded(WheelType wheelType)
     {
         return _sprintDatas[wheelType]._currentLength < _vehicleSettings.SpringRestLength;
+    }
+
+    public float GetSpringCurrentLength(WheelType wheelType)
+    {
+        return _sprintDatas[wheelType]._currentLength;
     }
 }
 

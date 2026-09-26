@@ -17,7 +17,7 @@ MonoBehaviour:
   _springRestLength: 0.8
   _springStrength: 1200
   _springDamper: 75
-  _steerAngle: 20
+  _steerAngle: 25
   _frontWheelsGripFactor: 0.8
   _rearWheelsGripFactor: 0.9
   _tireMass: 1

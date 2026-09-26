@@ -1185,6 +1185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3159898df5a895f4fa508cb75a31822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualController
+  _playerController: {fileID: 4283664257034538385}
+  _wheelFrontLeft: {fileID: 4283664257034538398}
+  _wheelFrontRight: {fileID: 4283664257034538384}
+  _wheelBackLeft: {fileID: 4283664257034538394}
+  _wheelBackRight: {fileID: 4283664257034538396}
+  _wheelSpinSpeed: 70
+  _wheelYWhenSpringMin: 0
+  _wheelYWhenSpringMax: 0
 --- !u!4 &4283664257034538384
 Transform:
   m_ObjectHideFlags: 0
