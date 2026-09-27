@@ -24,6 +24,7 @@ public class PlayerSkillController : NetworkBehaviour
         _hasSkillAlready = true;
         _isSkillUsed = false;
     }
+    
     public void ActivateSkill()
     {
         if(!_hasSkillAlready) { return; }
