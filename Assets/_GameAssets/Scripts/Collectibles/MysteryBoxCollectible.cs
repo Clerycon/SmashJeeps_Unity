@@ -4,6 +4,7 @@ using UnityEngine;
 public class MysteryBoxCollectible : NetworkBehaviour, ICollectible
 {
     [Header("References")]
+    [SerializeField] private MysteryBoxSkillsSO[] _mysteryBoxSkills;
     [SerializeField] private Animator _boxAnimator;
     [SerializeField] private Collider _collider;
     [Header("Settings")]
@@ -11,7 +12,8 @@ public class MysteryBoxCollectible : NetworkBehaviour, ICollectible
     
     public void Collect()
     {
-        Debug.Log(OwnerClientId + "Box Collected");
+        MysteryBoxSkillsSO skill = GetRandomSkill();
+        SkillsUI.Instance.SetSkill(skill.SkillName, skill.SkillIcon);
         CollectRpc();
     }
 
@@ -32,5 +34,11 @@ public class MysteryBoxCollectible : NetworkBehaviour, ICollectible
     {
         _boxAnimator.SetTrigger(Consts.BoxAnimations.IS_RESPAWNED);
         _collider.enabled = true;
+    }
+
+    private MysteryBoxSkillsSO GetRandomSkill()
+    {
+        int randomIndex = Random.Range(0, _mysteryBoxSkills.Length);
+        return _mysteryBoxSkills[randomIndex];
     }
 }

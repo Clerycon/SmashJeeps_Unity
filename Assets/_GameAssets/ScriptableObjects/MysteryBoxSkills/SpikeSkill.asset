@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxSkillsSO
   _skillName: Spike
   _skillIcon: {fileID: -1328555208, guid: 6de88ea7ed7c9134a9d64a392cf49c7c, type: 3}
+  _skillType: 5
+  _skillUsageType: 2
   _skillData: {fileID: 11400000, guid: 274d428a2bcc4554ea1bb443f5e16b53, type: 2}

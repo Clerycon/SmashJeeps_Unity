@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxSkillsSO
   _skillName: Mine
   _skillIcon: {fileID: -1020996379, guid: 82b6d27f59b43ef46a28283b52be8dd4, type: 3}
+  _skillType: 2
+  _skillUsageType: 1
   _skillData: {fileID: 11400000, guid: 51fa540fe91b24b4faa1acffe7d90885, type: 2}

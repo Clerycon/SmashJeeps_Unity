@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxSkillsSO
   _skillName: Rocket
   _skillIcon: {fileID: -738948584, guid: a2cb6dca4a1150c45bb3dddcd501accc, type: 3}
+  _skillType: 3
+  _skillUsageType: 0
   _skillData: {fileID: 11400000, guid: 0bfe09d2dbbeff94bab1d566ab8293a0, type: 2}

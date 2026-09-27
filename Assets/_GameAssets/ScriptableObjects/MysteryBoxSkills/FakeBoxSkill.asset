@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxSkillsSO
   _skillName: Fake Box
   _skillIcon: {fileID: 95911951, guid: 6f5111872d5cbc4439d87fca51b73b54, type: 3}
+  _skillType: 1
+  _skillUsageType: 0
   _skillData: {fileID: 11400000, guid: 97bd08879c05d1141b9576710bbf8e7a, type: 2}

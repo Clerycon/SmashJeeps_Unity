@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxSkillsSO
   _skillName: Shield
   _skillIcon: {fileID: 1881444746, guid: ff93dfeadfcfec348be9431d335e289b, type: 3}
+  _skillType: 4
+  _skillUsageType: 2
   _skillData: {fileID: 11400000, guid: 74fe53d565c0af74c8373d35713a0ea0, type: 2}

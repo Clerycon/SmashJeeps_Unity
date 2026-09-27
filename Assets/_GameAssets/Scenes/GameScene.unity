@@ -199,6 +199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72b181308f410f4484bb435dbcd22d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillsUI
+  _skillImage: {fileID: 584325239}
+  _skillNameText: {fileID: 112324538}
+  _timerCounterText: {fileID: 653713307}
+  _timerCounterParentTransform: {fileID: 852366243}
 --- !u!1 &112324536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2524,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MysteryBoxCollectible
   ShowTopMostFoldoutHeaderGroup: 1
+  _mysteryBoxSkills:
+  - {fileID: 11400000, guid: 9fe8b270220fa97409ff6a3171dded9d, type: 2}
+  - {fileID: 11400000, guid: edf5c0dc5e4950f4182eb222dc9941df, type: 2}
+  - {fileID: 11400000, guid: 3f7df4f3c465908439a7829d00e213ca, type: 2}
+  - {fileID: 11400000, guid: c21422aa9d35814429ade2c7370f7a8b, type: 2}
+  - {fileID: 11400000, guid: f174b96f84ad1c746afd16a7a53da56c, type: 2}
   _boxAnimator: {fileID: 8081315571539472652}
   _collider: {fileID: 6614189645354640292}
   _respawnTimer: 5
