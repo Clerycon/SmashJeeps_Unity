@@ -1,12 +1,39 @@
+using System;
+using System.Runtime.InteropServices;
 using Unity.Netcode;
 using UnityEngine;
 
 public class FakeBoxDamageable : NetworkBehaviour, IDamageable
 {
+    public override void OnNetworkSpawn()
+    {
+        if(!IsOwner) { return; }
+
+        if(NetworkManager.Singleton.ConnectedClients.TryGetValue(OwnerClientId, out var client))
+        {
+            NetworkObject ownerNetworkObject = client.PlayerObject;
+            PlayerController playerController = ownerNetworkObject.GetComponent<PlayerController>();
+            playerController.OnVehicleCrashed += PlayerController_OnVehicleCrashed;
+        }
+    }
+
+    private void PlayerController_OnVehicleCrashed()
+    {
+        DestroyRpc();
+    }
+
     public void Damage(PlayerController playerController)
     {
         playerController.CrashVehicle();
         DestroyRpc();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out ShieldController shieldController))
+        {
+            DestroyRpc();
+        }    
     }
 
     [Rpc(SendTo.ClientsAndHost)]
@@ -15,6 +42,18 @@ public class FakeBoxDamageable : NetworkBehaviour, IDamageable
         if (IsServer)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if(!IsOwner) { return; }
+
+        if(NetworkManager.Singleton.ConnectedClients.TryGetValue(OwnerClientId, out var client))
+        {
+            NetworkObject ownerNetworkObject = client.PlayerObject;
+            PlayerController playerController = ownerNetworkObject.GetComponent<PlayerController>();
+            playerController.OnVehicleCrashed -= PlayerController_OnVehicleCrashed;
         }
     }
 }

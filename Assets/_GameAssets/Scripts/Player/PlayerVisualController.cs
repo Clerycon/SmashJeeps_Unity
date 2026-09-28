@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -20,6 +21,18 @@ public class PlayerVisualController : NetworkBehaviour
         {WheelType.BackLeft, 0f},
         {WheelType.BackRight, 0f},
     };
+
+    public override void OnNetworkSpawn()
+    {
+        if(!IsOwner) { return; }
+
+        _playerController.OnVehicleCrashed += PlayerController_OnVehicledCrashed;
+    }
+
+    private void PlayerController_OnVehicledCrashed()
+    {
+        enabled = false;
+    }
 
     private void Start()
     {

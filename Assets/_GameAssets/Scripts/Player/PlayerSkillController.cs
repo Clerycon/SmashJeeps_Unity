@@ -12,12 +12,32 @@ public class PlayerSkillController : NetworkBehaviour
     [SerializeField] private bool _hasSkillAlready;
     [SerializeField] private float _resetDelay;
     
+    private PlayerController _playerController;
+    private PlayerInteractionController _playerInteractionController;
     private MysteryBoxSkillsSO _mysteryBoxSkill;
     private bool _isSkillUsed;
     private bool _hasTimerStarted;
     private float _timer;
     private float _timerMax;
     private int _mineAmountCounter;
+    
+    
+    public override void OnNetworkSpawn()
+    {
+        _playerController = GetComponent<PlayerController>();
+        _playerInteractionController = GetComponent<PlayerInteractionController>();
+        _playerController.OnVehicleCrashed += PlayerController_OnVehicleCrashed;
+    }
+
+    private void PlayerController_OnVehicleCrashed()
+    {
+        SkillsUI.Instance.SetSkillToNone();
+        _hasTimerStarted = false;
+        _hasSkillAlready = false;
+        SetRocketLauncherActiveRpc(false);
+        enabled = false;
+    }
+
     private void Update()
     {
         if(!IsOwner) { return; }
@@ -39,6 +59,16 @@ public class PlayerSkillController : NetworkBehaviour
                 SkillsUI.Instance.SetSkillToNone();
                 _hasTimerStarted = false;
                 _hasSkillAlready = false;
+                
+                if(_mysteryBoxSkill.SkillType == SkillType.Shield)
+                {
+                    _playerInteractionController.SetShieldActive(false);
+                }
+
+                if(_mysteryBoxSkill.SkillType == SkillType.Spike)
+                {
+                    _playerInteractionController.SetSpikeActive(false);
+                }
             }
         }
     }
@@ -65,6 +95,16 @@ public class PlayerSkillController : NetworkBehaviour
         if(_mysteryBoxSkill.SkillType == SkillType.Rocket)
         {
             StartCoroutine(ResetRocketLauncher());
+        }
+
+        if(_mysteryBoxSkill.SkillType == SkillType.Shield)
+        {
+            _playerInteractionController.SetShieldActive(true);
+        }
+
+        if(_mysteryBoxSkill.SkillType == SkillType.Spike)
+        {
+            _playerInteractionController.SetSpikeActive(true);
         }
     }
 
