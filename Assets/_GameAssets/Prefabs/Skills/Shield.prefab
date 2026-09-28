@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6169186877539425776}
   - component: {fileID: 6166782613772218514}
+  - component: {fileID: 7975907716103618859}
   - component: {fileID: 218036084674150820}
   m_Layer: 0
   m_Name: Shield
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2548368531
+  GlobalObjectIdHash: 1557816235
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -151,6 +152,18 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &7975907716103618859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121399127508624728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d571e58b9b384049930b86f7675d73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShieldController
 --- !u!135 &218036084674150820
 SphereCollider:
   m_ObjectHideFlags: 0

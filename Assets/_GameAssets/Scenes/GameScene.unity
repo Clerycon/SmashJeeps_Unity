@@ -203,6 +203,7 @@ MonoBehaviour:
   _skillNameText: {fileID: 112324538}
   _timerCounterText: {fileID: 653713307}
   _timerCounterParentTransform: {fileID: 852366243}
+  _scaleDuration: 0.2
 --- !u!1 &112324536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852366243}
   m_Layer: 5
-  m_Name: TimerCounterParent
+  m_Name: TimerCounterBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1039,19 +1040,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852366242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 999028549}
-  m_Father: {fileID: 1615755038}
+  m_Father: {fileID: 1730348416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10, y: -10}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &999028548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1917,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 584325238}
-  - {fileID: 852366243}
+  - {fileID: 1730348416}
   - {fileID: 112324537}
   m_Father: {fileID: 68918664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2073,6 +2074,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1730348415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730348416}
+  m_Layer: 5
+  m_Name: TimerCounterParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1730348416
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730348415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 852366243}
+  m_Father: {fileID: 1615755038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: -10}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1827582266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,7 +2534,7 @@ PrefabInstance:
     - target: {fileID: 6567957682933263541, guid: afc01cf4aea958f49be1a7a9889c7c95, type: 3}
       propertyPath: '_mysteryBoxSkills.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 9fe8b270220fa97409ff6a3171dded9d, type: 2}
+      objectReference: {fileID: 11400000, guid: c21422aa9d35814429ade2c7370f7a8b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,13 +1,17 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerSkillController : NetworkBehaviour
 {
+    public static event Action OnTimerFinished;
     [SerializeField] private bool _hasSkillAlready;
     
     private MysteryBoxSkillsSO _mysteryBoxSkill;
     private bool _isSkillUsed;
-
+    private bool _hasTimerStarted;
+    private float _timer;
+    private float _timerMax;
     private void Update()
     {
         if(!IsOwner) { return; }
@@ -16,6 +20,20 @@ public class PlayerSkillController : NetworkBehaviour
         {
             ActivateSkill();
             _isSkillUsed = true;
+        }
+
+        if (_hasTimerStarted)
+        {
+            _timer -= Time.deltaTime;
+            SkillsUI.Instance.SetTimerCounterText((int)_timer);
+
+            if(_timer <= 0f)
+            {
+                OnTimerFinished?.Invoke();
+                SkillsUI.Instance.SetSkillToNone();
+                _hasTimerStarted = false;
+                _hasSkillAlready = false;
+            }
         }
     }
     public void SetupSkill(MysteryBoxSkillsSO skill)
@@ -30,10 +48,23 @@ public class PlayerSkillController : NetworkBehaviour
         if(!_hasSkillAlready) { return; }
 
         SkillManager.Instance.ActivateSkill(_mysteryBoxSkill.SkillType, transform, OwnerClientId);
+        SetSkillToNone(); 
+    }
 
-        SkillsUI.Instance.SetSkillToNone();
-        _hasSkillAlready = false;
-        Debug.Log("Skill Used: " + _mysteryBoxSkill.SkillType);   
+    private void SetSkillToNone()
+    {
+        if(_mysteryBoxSkill.SkillUsageType == SkillUsageType.None)
+        {
+            _hasSkillAlready = false;
+            SkillsUI.Instance.SetSkillToNone();
+        }
+
+        if(_mysteryBoxSkill.SkillUsageType == SkillUsageType.Timer)
+        {
+            _hasTimerStarted = true;
+            _timerMax = _mysteryBoxSkill.SkillData.SpawnAmountOrTimer;
+            _timer = _timerMax;
+        }
     }
 
     public bool HasSkillAlready()
