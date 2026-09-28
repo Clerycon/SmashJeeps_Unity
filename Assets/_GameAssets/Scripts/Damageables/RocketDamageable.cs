@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RocketDamageable : NetworkBehaviour, IDamageable
 {
+    [SerializeField] private MysteryBoxSkillsSO _mysteryBoxSkill;
     public override void OnNetworkSpawn()
     {
         if(!IsOwner) { return; }
@@ -22,6 +23,7 @@ public class RocketDamageable : NetworkBehaviour, IDamageable
     public void Damage(PlayerController playerController)
     {
         playerController.CrashVehicle();
+        KillScreenUI.Instance.SetSmashedUI("Clerycon", _mysteryBoxSkill.SkillData.RespawnTimer);
         DestroyRpc();
     }
 
@@ -52,5 +54,10 @@ public class RocketDamageable : NetworkBehaviour, IDamageable
             PlayerController playerController = ownerNetworkObject.GetComponent<PlayerController>();
             playerController.OnVehicleCrashed -= PlayerController_OnVehicleCrashed;
         }
+    }
+
+    public ulong GetKillerClientId()
+    {
+        return OwnerClientId;
     }
 }

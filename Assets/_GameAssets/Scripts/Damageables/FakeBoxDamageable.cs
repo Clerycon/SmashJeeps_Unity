@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FakeBoxDamageable : NetworkBehaviour, IDamageable
 {
+    [SerializeField] private MysteryBoxSkillsSO _mysteryBoxSkill;
     public override void OnNetworkSpawn()
     {
         if(!IsOwner) { return; }
@@ -25,6 +26,7 @@ public class FakeBoxDamageable : NetworkBehaviour, IDamageable
     public void Damage(PlayerController playerController)
     {
         playerController.CrashVehicle();
+        KillScreenUI.Instance.SetSmashedUI("Clerycon", _mysteryBoxSkill.SkillData.RespawnTimer);
         DestroyRpc();
     }
 
@@ -55,5 +57,10 @@ public class FakeBoxDamageable : NetworkBehaviour, IDamageable
             PlayerController playerController = ownerNetworkObject.GetComponent<PlayerController>();
             playerController.OnVehicleCrashed -= PlayerController_OnVehicleCrashed;
         }
+    }
+
+    public ulong GetKillerClientId()
+    {
+        return OwnerClientId;
     }
 }
