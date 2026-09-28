@@ -17,6 +17,7 @@ public class PlayerSkillController : NetworkBehaviour
     private bool _hasTimerStarted;
     private float _timer;
     private float _timerMax;
+    private int _mineAmountCounter;
     private void Update()
     {
         if(!IsOwner) { return; }
@@ -92,6 +93,25 @@ public class PlayerSkillController : NetworkBehaviour
             _hasTimerStarted = true;
             _timerMax = _mysteryBoxSkill.SkillData.SpawnAmountOrTimer;
             _timer = _timerMax;
+        }
+
+        if(_mysteryBoxSkill.SkillUsageType == SkillUsageType.Amount)
+        {
+            _mineAmountCounter = _mysteryBoxSkill.SkillData.SpawnAmountOrTimer;
+            SkillManager.Instance.OnMineCountReduced += SkillManager_OnMineCountReduced;
+        }
+    }
+
+    private void SkillManager_OnMineCountReduced()
+    {
+        _mineAmountCounter--;
+        SkillsUI.Instance.SetTimerCounterText(_mineAmountCounter);
+
+        if(_mineAmountCounter <= 0)
+        {
+            _hasSkillAlready = false;
+            SkillsUI.Instance.SetSkillToNone();
+            SkillManager.Instance.OnMineCountReduced -= SkillManager_OnMineCountReduced;
         }
     }
 
