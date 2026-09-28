@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58cff8a3910b1a409828e8bb37ea26f, type: 3}
   m_Name: SpikeSkillData
   m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
-  _skillPrefab: {fileID: 0}
+  _skillPrefab: {fileID: 6905970974482342864, guid: e50ce85b9148fe84e89db1ece5e12339, type: 3}
+  _skillOffset: {x: 0, y: -0.75, z: 0}
+  _spawnAmountOrTimer: 3
+  _shouldBeAttachedToParent: 1
+  _respawnTimer: 5
+  _damageAmount: 100

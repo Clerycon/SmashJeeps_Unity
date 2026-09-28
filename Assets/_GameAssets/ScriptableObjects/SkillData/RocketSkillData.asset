@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58cff8a3910b1a409828e8bb37ea26f, type: 3}
   m_Name: RocketSkillData
   m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
-  _skillPrefab: {fileID: 0}
+  _skillPrefab: {fileID: 1492514635919820995, guid: ca802759401ff794b9900f0de20ebaeb, type: 3}
+  _skillOffset: {x: 0, y: 0.5, z: 2.3}
+  _spawnAmountOrTimer: 0
+  _shouldBeAttachedToParent: 0
+  _respawnTimer: 5
+  _damageAmount: 100
