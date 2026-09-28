@@ -337,6 +337,8 @@ public class PlayerController : NetworkBehaviour
         _playerRigidbody.AddTorque(Vector3.forward * _crashTorque, ForceMode.Impulse);
         enabled = false;
     }
+
+    public void OnPlayerRespawned() => enabled = true;
 }
 
 public static class SpringMathExtensions

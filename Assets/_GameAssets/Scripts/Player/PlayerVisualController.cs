@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class PlayerVisualController : NetworkBehaviour
 {
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Transform _playerVisualTransform;
+    [SerializeField] private Collider _playerCollider;
     [SerializeField] private Transform _wheelFrontLeft, _wheelFrontRight, _wheelBackLeft, _wheelBackRight;
     [SerializeField] private float _wheelSpinSpeed, _wheelYWhenSpringMin, _wheelYWhenSpringMax;
     
@@ -110,4 +113,27 @@ public class PlayerVisualController : NetworkBehaviour
             _wheelBackRight.localPosition.z);
     }
 
+    public void SetVehicleVisualActive(float delay)
+    {
+        StartCoroutine(SetVehicleVisualActiveCoroutine(delay));
+    }
+
+    private IEnumerator SetVehicleVisualActiveCoroutine(float delay)
+    {
+        SetVehicleVisualActiveRpc(false);
+        _playerCollider.enabled = false;
+
+        yield return new WaitForSeconds(delay);
+
+        SetVehicleVisualActiveRpc(true);
+        _playerCollider.enabled = true;
+        enabled = true;
+        
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SetVehicleVisualActiveRpc(bool isActive)
+    {
+        _playerVisualTransform.gameObject.SetActive(isActive);
+    }
 }

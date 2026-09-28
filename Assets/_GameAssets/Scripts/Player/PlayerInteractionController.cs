@@ -64,10 +64,17 @@ public class PlayerInteractionController : NetworkBehaviour
                 Debug.Log("Shield Active: Damage Blocked");
                 return;
             }
-            damageable.Damage(_playerController);
-            SetKillerUIRpc(damageable.GetKillerClientId(), 
-                RpcTarget.Single(damageable.GetKillerClientId(), RpcTargetUse.Temp));
+
+            CrashTheVehicle(damageable);   
         }
+    }
+
+    private void CrashTheVehicle(IDamageable damageable)
+    {
+        damageable.Damage(_playerController);
+        SetKillerUIRpc(damageable.GetKillerClientId(), 
+            RpcTarget.Single(damageable.GetKillerClientId(), RpcTargetUse.Temp));
+        SpawnerManager.Instance.RespawnPlayer(damageable.GetRespawnTimer(), OwnerClientId);
     }
 
     [Rpc(SendTo.SpecifiedInParams)]
@@ -77,6 +84,12 @@ public class PlayerInteractionController : NetworkBehaviour
         {
             KillScreenUI.Instance.SetSmashUI("Clerycon");
         }
+    }
+
+    public void OnPlayerRespawned()
+    {
+        enabled = true;
+        _isCrashed = false;
     }
 
     public void SetShieldActive(bool active) => _isShieldActive = active;

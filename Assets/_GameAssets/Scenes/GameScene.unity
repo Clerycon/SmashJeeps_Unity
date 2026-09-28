@@ -2425,6 +2425,11 @@ MonoBehaviour:
   - {fileID: 1264036392}
   - {fileID: 1726139595}
   - {fileID: 135035883}
+  _respawnPointTransformList:
+  - {fileID: 780567060}
+  - {fileID: 1264036392}
+  - {fileID: 1726139595}
+  - {fileID: 135035883}
 --- !u!114 &1256939547
 MonoBehaviour:
   m_ObjectHideFlags: 0

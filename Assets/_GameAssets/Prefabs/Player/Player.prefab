@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 36283699
+  GlobalObjectIdHash: 3705312310
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -193,6 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualController
   ShowTopMostFoldoutHeaderGroup: 1
   _playerController: {fileID: 1068297795016973118}
+  _playerVisualTransform: {fileID: 5248103996177824280}
+  _playerCollider: {fileID: 7932560635745456024}
   _wheelFrontLeft: {fileID: 1783516885988421133}
   _wheelFrontRight: {fileID: 8842571500257169268}
   _wheelBackLeft: {fileID: 4213346256465146233}
