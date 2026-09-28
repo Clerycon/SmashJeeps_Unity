@@ -964,6 +964,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f7df4f3c465908439a7829d00e213ca, type: 2}
   - {fileID: 11400000, guid: c21422aa9d35814429ade2c7370f7a8b, type: 2}
   - {fileID: 11400000, guid: f174b96f84ad1c746afd16a7a53da56c, type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1244,7 @@ GameObject:
   - component: {fileID: 1113189542}
   - component: {fileID: 1113189541}
   - component: {fileID: 1113189540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2491,6 +2494,10 @@ PrefabInstance:
       propertyPath: _mysteryBoxSkills.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6567957682933263541, guid: afc01cf4aea958f49be1a7a9889c7c95, type: 3}
+      propertyPath: '_mysteryBoxSkills.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fe8b270220fa97409ff6a3171dded9d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
