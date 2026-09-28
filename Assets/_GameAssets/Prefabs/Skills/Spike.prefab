@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 6905970974482342864}
   - component: {fileID: 7138752834234395722}
   - component: {fileID: 3414883394678497093}
+  - component: {fileID: 3391470800245869493}
   - component: {fileID: 2685096986828939621}
   m_Layer: 0
   m_Name: Spike
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3794849289
+  GlobalObjectIdHash: 4253722084
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -352,6 +353,20 @@ MonoBehaviour:
   AnimatorParameterEntries:
     ParameterEntries: []
   AnimatorParametersExpanded: 0
+--- !u!114 &3391470800245869493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066764461143492215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28e6a010a3750849b657653856de64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpikeController
+  ShowTopMostFoldoutHeaderGroup: 1
+  _spikeCollider: {fileID: 2685096986828939621}
 --- !u!65 &2685096986828939621
 BoxCollider:
   m_ObjectHideFlags: 0
