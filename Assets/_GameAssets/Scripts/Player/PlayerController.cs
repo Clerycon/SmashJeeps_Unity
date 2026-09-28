@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : NetworkBehaviour
 {
+    public event Action OnVehicleCrashed;
     public class SpringData
     {
         public float _currentLength;
@@ -34,6 +36,11 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
     [SerializeField] private BoxCollider _playerCollider;
     [SerializeField] private VehicleSettingsSO _vehicleSettings;
+
+    [Header("Settings")]
+    [SerializeField] private float _crashForce;
+    [SerializeField] private float _crashTorque;
+
 
 
     public Vector3 Forward => transform.forward;
@@ -320,6 +327,15 @@ public class PlayerController : NetworkBehaviour
             await UniTask.DelayFrame(1);
             _playerRigidbody.isKinematic = false;
         }
+    }
+
+    public void CrashVehicle()
+    {
+        OnVehicleCrashed?.Invoke();
+
+        _playerRigidbody.AddForce(Vector3.up * _crashForce, ForceMode.Impulse);
+        _playerRigidbody.AddTorque(Vector3.forward * _crashTorque, ForceMode.Impulse);
+        enabled = false;
     }
 }
 

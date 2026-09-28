@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 8930986079333229857}
   - component: {fileID: 8601927181092801328}
   - component: {fileID: 3364970714586281019}
+  - component: {fileID: 2482661227847966581}
   - component: {fileID: 5672087175584177505}
   - component: {fileID: 383339900329961418}
   - component: {fileID: 5714218040314884821}
@@ -197,6 +198,18 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &2482661227847966581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119478809589217775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8240a45d21cfa94488e16652b066e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MineDamageable
 --- !u!114 &5672087175584177505
 MonoBehaviour:
   m_ObjectHideFlags: 0

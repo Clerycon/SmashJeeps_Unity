@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 1492514635919820995}
   - component: {fileID: 8997835178611016132}
   - component: {fileID: 303326043053565082}
+  - component: {fileID: -3234476109093755516}
   - component: {fileID: 531319968688993290}
   - component: {fileID: 4777091896764173289}
   - component: {fileID: 7216704677313883393}
@@ -171,6 +172,18 @@ MonoBehaviour:
   _rocketCollider: {fileID: 863408864384055964}
   _movementSpeed: 40
   _rotationSpeed: 600
+--- !u!114 &-3234476109093755516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019364791275089947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3848dd368d09845a95b2ac3c8f15e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RocketDamageable
 --- !u!114 &531319968688993290
 MonoBehaviour:
   m_ObjectHideFlags: 0

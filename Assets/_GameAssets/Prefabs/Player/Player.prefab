@@ -177,6 +177,8 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 841761066687953161}
   _playerCollider: {fileID: 7932560635745456024}
   _vehicleSettings: {fileID: 11400000, guid: 6d4224e4c95171e4fbcbd1a92e8dd29f, type: 2}
+  _crashForce: 500
+  _crashTorque: -150
 --- !u!114 &2755209718007341517
 MonoBehaviour:
   m_ObjectHideFlags: 0
