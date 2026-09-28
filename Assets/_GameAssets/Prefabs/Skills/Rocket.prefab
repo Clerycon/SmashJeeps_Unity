@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492514635919820995}
   - component: {fileID: 8997835178611016132}
+  - component: {fileID: 303326043053565082}
   - component: {fileID: 531319968688993290}
   - component: {fileID: 4777091896764173289}
   - component: {fileID: 7216704677313883393}
@@ -139,14 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3486711346
+  GlobalObjectIdHash: 549792318
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
   Ownership: 8
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  m_InScenePlaced: 1
+  m_InScenePlaced: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
@@ -154,6 +155,22 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &303326043053565082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019364791275089947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29aadfa7b6ad5a94f80c9c38dc1203a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RocketController
+  ShowTopMostFoldoutHeaderGroup: 1
+  _rocketCollider: {fileID: 863408864384055964}
+  _movementSpeed: 40
+  _rotationSpeed: 600
 --- !u!114 &531319968688993290
 MonoBehaviour:
   m_ObjectHideFlags: 0

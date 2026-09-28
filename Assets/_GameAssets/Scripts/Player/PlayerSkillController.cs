@@ -1,11 +1,16 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerSkillController : NetworkBehaviour
 {
     public static event Action OnTimerFinished;
+
+    [SerializeField] private Transform _rocketLauncherTransform;
+    [SerializeField] private Transform _rocketLaunchPoint;
     [SerializeField] private bool _hasSkillAlready;
+    [SerializeField] private float _resetDelay;
     
     private MysteryBoxSkillsSO _mysteryBoxSkill;
     private bool _isSkillUsed;
@@ -39,6 +44,12 @@ public class PlayerSkillController : NetworkBehaviour
     public void SetupSkill(MysteryBoxSkillsSO skill)
     {
         _mysteryBoxSkill = skill;
+
+        if(_mysteryBoxSkill.SkillType == SkillType.Rocket)
+        {
+            SetRocketLauncherActiveRpc(true);
+        }
+
         _hasSkillAlready = true;
         _isSkillUsed = false;
     }
@@ -49,6 +60,23 @@ public class PlayerSkillController : NetworkBehaviour
 
         SkillManager.Instance.ActivateSkill(_mysteryBoxSkill.SkillType, transform, OwnerClientId);
         SetSkillToNone(); 
+
+        if(_mysteryBoxSkill.SkillType == SkillType.Rocket)
+        {
+            StartCoroutine(ResetRocketLauncher());
+        }
+    }
+
+    [Rpc(SendTo.ClientsAndHost)]
+    private void SetRocketLauncherActiveRpc(bool active)
+    {
+        _rocketLauncherTransform.gameObject.SetActive(active);
+    }
+
+    private IEnumerator ResetRocketLauncher()
+    {
+        yield return new WaitForSeconds(_resetDelay);
+        SetRocketLauncherActiveRpc(false);
     }
 
     private void SetSkillToNone()
@@ -70,6 +98,11 @@ public class PlayerSkillController : NetworkBehaviour
     public bool HasSkillAlready()
     {
         return _hasSkillAlready;
+    }
+
+    public Vector3 GetRocketLaunchPosition()
+    {
+        return _rocketLaunchPoint.position;
     }
 
     
