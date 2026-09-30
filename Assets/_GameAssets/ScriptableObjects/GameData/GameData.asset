@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f588d0e55b3bc24481b99367d34d2c8, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: Assembly-CSharp::GameDataSO
-  _gameTimer: 10
+  _gameTimer: 5
