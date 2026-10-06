@@ -1385,6 +1385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   _hostButton: {fileID: 531479507}
+  _clientButton: {fileID: 2086063729}
+  _joinCodeInputField: {fileID: 1067911086}
 --- !u!1 &1496775355
 GameObject:
   m_ObjectHideFlags: 0

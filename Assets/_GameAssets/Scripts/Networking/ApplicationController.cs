@@ -30,6 +30,7 @@ public class ApplicationController : MonoBehaviour
             if (isAuthenticated)
             {
                 clientSingletonInstance.ClientGameManager.GoToMainMenu();
+                Debug.Log("Authenticated");
             }
         }
     }
