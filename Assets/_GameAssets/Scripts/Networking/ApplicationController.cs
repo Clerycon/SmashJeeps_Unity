@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class ApplicationController : MonoBehaviour
@@ -11,7 +11,7 @@ public class ApplicationController : MonoBehaviour
 
         await LaunchInMode(SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null);
     }
-    private async Task LaunchInMode(bool isDedicatedServer)
+    private async UniTask LaunchInMode(bool isDedicatedServer)
     {
         if (isDedicatedServer)
         {
@@ -25,7 +25,12 @@ public class ApplicationController : MonoBehaviour
             hostSingletonInstance.CreateHost();
             
             ClientSingleton clientSingletonInstance = Instantiate(_clientSingletonPrefab);
-            await clientSingletonInstance.CreateClient();
+            bool isAuthenticated = await clientSingletonInstance.CreateClient();
+
+            if (isAuthenticated)
+            {
+                clientSingletonInstance.ClientGameManager.GoToMainMenu();
+            }
         }
     }
 }
