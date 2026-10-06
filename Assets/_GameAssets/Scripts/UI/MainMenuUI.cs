@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Button _hostButton;
+
+    private void Awake()
     {
+        _hostButton.onClick.AddListener(OnHostButtonClicked);
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private async void OnHostButtonClicked()
     {
-        
+        await HostSingleton.Instance.HostGameManager.StartHostAsync();
     }
 }
