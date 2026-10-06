@@ -1,7 +1,11 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using Unity.Services.Lobbies;
+using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
@@ -13,6 +17,7 @@ public class HostGameManager
 
     private Allocation _allocation;
     private string _joinCode;
+    private string _lobbyId;
     public async UniTask StartHostAsync()
     {
         try
@@ -36,11 +41,51 @@ public class HostGameManager
             return;
         }
 
+
+
         UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         transport.SetRelayServerData(AllocationUtils.ToRelayServerData(_allocation, "dtls"));
+
+        try
+        {
+            CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions();
+            createLobbyOptions.IsPrivate = false;
+            createLobbyOptions.Data = new Dictionary<string, DataObject>()
+            {
+                {
+                    "JoinCode", new DataObject
+                    (
+                        visibility: DataObject.VisibilityOptions.Member,
+                        value: _joinCode
+                    )
+                }
+            };
+            
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync("Clerycon's Lobby", MAX_CONNECTIONS, createLobbyOptions);
+            _lobbyId = lobby.Id;
+
+            HostSingleton.Instance.StartCoroutine(HeartbeatLobby(15f));
+        }
+        catch (LobbyServiceException lobbyServiceException)
+        {
+            Debug.LogError(lobbyServiceException);
+            return;
+        }
+
         NetworkManager.Singleton.StartHost();
 
         NetworkManager.Singleton.SceneManager.LoadScene(Consts.SceneNames.GAME_SCENE, LoadSceneMode.Single);
+    }
+
+    private IEnumerator HeartbeatLobby(float waitTimeSeconds)
+    {
+        WaitForSecondsRealtime delay = new WaitForSecondsRealtime(waitTimeSeconds);
+
+        while (true)
+        {
+            LobbyService.Instance.SendHeartbeatPingAsync(_lobbyId);
+            yield return delay;
+        }
     }
 
 
