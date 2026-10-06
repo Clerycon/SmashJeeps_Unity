@@ -266,6 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3537647250386831060}
+  - component: {fileID: 2946047254369348095}
   - component: {fileID: 6977637719510878815}
   - component: {fileID: 1892544442877413854}
   m_Layer: 5
@@ -297,6 +298,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 880, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2946047254369348095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101523673379097929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae159d3f91f84d4eb7289433de9754a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyItemUI
+  _joinButton: {fileID: 1544692348632102315}
+  _lobbyNameText: {fileID: 3097359682621253639}
+  _lobbyPlayersText: {fileID: 5028150408553205299}
 --- !u!222 &6977637719510878815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -347,7 +363,7 @@ GameObject:
   - component: {fileID: 3775195424624053135}
   - component: {fileID: 5028150408553205299}
   m_Layer: 5
-  m_Name: LobbyNameText (1)
+  m_Name: LobbyPlayersText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

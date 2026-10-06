@@ -280,6 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319184507}
+  - component: {fileID: 319184508}
   m_Layer: 5
   m_Name: LobbiesParent
   m_TagString: Untagged
@@ -307,6 +308,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &319184508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319184506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7513934cec02f364c8de8a1713b9ed08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbiesListUI
+  _lobbyItemParent: {fileID: 1834564663}
+  _lobbyItemPrefab: {fileID: 2946047254369348095, guid: b88cedd5b5782504eafe95c198029430, type: 3}
+  _refreshButton: {fileID: 1351899198}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1838,7 @@ MonoBehaviour:
   _lobbiesParentObject: {fileID: 319184506}
   _lobbiesBackgroundTransform: {fileID: 2063885595}
   _joinCodeInputField: {fileID: 1067911086}
+  _lobbiesListUI: {fileID: 319184508}
   _animationDuration: 0.5
 --- !u!1 &1405468776
 GameObject:

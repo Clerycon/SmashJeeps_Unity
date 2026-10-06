@@ -15,6 +15,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject _lobbiesParentObject;
     [SerializeField] private RectTransform _lobbiesBackgroundTransform;
     [SerializeField] private TMP_InputField _joinCodeInputField;
+    [SerializeField] private LobbiesListUI _lobbiesListUI;
 
     [Header("Settings")]
     [SerializeField] private float _animationDuration;
@@ -37,6 +38,7 @@ public class MainMenuUI : MonoBehaviour
     {
         _lobbiesParentObject.SetActive(true);
         _lobbiesBackgroundTransform.DOAnchorPosX(-650f, _animationDuration).SetEase(Ease.OutBack);
+        _lobbiesListUI.RefreshList();
     }
     private void CloseLobbies()
     {
