@@ -13,6 +13,12 @@ public class Consts
         public const string LOADING_SCENE = "LoadingScene";
         public const string MENU_SCENE = "MenuScene";
         public const string GAME_SCENE = "GameScene";
+        public const string NAME_SELECTOR_SCENE = "NameSelectorScene";
 
+    }
+
+    public struct PlayerData
+    {
+        public const string PLAYER_NAME = "PlayerName";
     }
 }
