@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -14,6 +15,8 @@ using UnityEngine.SceneManagement;
 public class HostGameManager
 {
     private const int MAX_CONNECTIONS = 4; 
+
+    public NetworkServer NetworkServer { get; private set; }
 
     private Allocation _allocation;
     private string _joinCode;
@@ -60,8 +63,10 @@ public class HostGameManager
                     )
                 }
             };
+
+            string playerName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name");
             
-            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync("Clerycon's Lobby", MAX_CONNECTIONS, createLobbyOptions);
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync($"{playerName}'s Lobby.", MAX_CONNECTIONS, createLobbyOptions);
             _lobbyId = lobby.Id;
 
             HostSingleton.Instance.StartCoroutine(HeartbeatLobby(15f));
@@ -71,6 +76,17 @@ public class HostGameManager
             Debug.LogError(lobbyServiceException);
             return;
         }
+
+        NetworkServer = new NetworkServer(NetworkManager.Singleton);
+
+        UserData userData = new UserData
+        {
+            UserName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name")
+        };
+
+        string payload = JsonUtility.ToJson(userData);
+        byte[] payloadBytes = Encoding.UTF8.GetBytes(payload);
+        NetworkManager.Singleton.NetworkConfig.ConnectionData = payloadBytes;
 
         NetworkManager.Singleton.StartHost();
 
