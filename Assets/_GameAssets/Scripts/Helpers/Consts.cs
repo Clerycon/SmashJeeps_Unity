@@ -14,6 +14,7 @@ public class Consts
         public const string MENU_SCENE = "MenuScene";
         public const string GAME_SCENE = "GameScene";
         public const string NAME_SELECTOR_SCENE = "NameSelectorScene";
+        public const string CHARACTER_SELECT_SCENE = "CharacterSelectScene";
 
     }
 
