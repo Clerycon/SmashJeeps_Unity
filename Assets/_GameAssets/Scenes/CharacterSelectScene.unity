@@ -435,6 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131374094}
+  - component: {fileID: 131374095}
   m_Layer: 5
   m_Name: CharacterSelectUI
   m_TagString: Untagged
@@ -467,6 +468,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &131374095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131374093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5fde74a4313a9408359eb85b853fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectUI
+  _mainMenuButton: {fileID: 2054557817}
+  _readyButton: {fileID: 968400106}
+  _startButton: {fileID: 835169042}
+  _copyButton: {fileID: 399464475}
+  _readyText: {fileID: 1415191020}
+  _greenButtonSprite: {fileID: -1428609198, guid: 3f382c7e313b8d445aa2a67ad287df26, type: 3}
+  _redButtonSprite: {fileID: -1357662861, guid: 435c301b9f8e3f34c9a65f42764b15f9, type: 3}
 --- !u!1 &232014346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,9 +3223,9 @@ MonoBehaviour:
   Ownership: 8
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  m_InScenePlaced: 0
+  m_InScenePlaced: 1
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1

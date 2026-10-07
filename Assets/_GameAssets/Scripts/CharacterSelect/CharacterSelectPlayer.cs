@@ -10,6 +10,8 @@ public class CharacterSelectPlayer : NetworkBehaviour
     [SerializeField] private TMP_Text _playerNameText;
     [SerializeField] private GameObject _readyGameObject;
     [SerializeField] private Button _kickButton;
+
+
     
     private void Start()
     {
@@ -41,10 +43,17 @@ public class CharacterSelectPlayer : NetworkBehaviour
                 MultiplayerGameManager.Instance.GetPlayerDataFromPlayerIndex(_playerIndex);
 
             _readyGameObject.SetActive(CharacterSelectReady.Instance.IsPlayerReady(playerData.ClientId));
+            HideKickButton(playerData);
         }
         else
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void HideKickButton(PlayerDataSerializable playerData)
+    {
+        _kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer && 
+            playerData.ClientId != NetworkManager.Singleton.LocalClientId);
     }
 }

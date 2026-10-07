@@ -7,7 +7,7 @@ public class CharacterSelectReady : NetworkBehaviour
     public static CharacterSelectReady Instance {get; private set;}
     public event Action OnReadyChanged;
     public event Action OnUnreadyChanged;
-    public event Action OnAllPlayerReady;
+    public event Action OnAllPlayersReady;
     private Dictionary<ulong, bool> _playerReadyDictionary = new Dictionary<ulong, bool>();
     private void Awake()
     {
@@ -62,7 +62,7 @@ public class CharacterSelectReady : NetworkBehaviour
 
         if (allClientsReady)
         {
-            OnAllPlayerReady?.Invoke();
+            OnAllPlayersReady?.Invoke();
         }
     }
 
