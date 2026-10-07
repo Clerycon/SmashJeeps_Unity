@@ -3,6 +3,7 @@ using System.Text;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
@@ -10,11 +11,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ClientGameManager
-{
+{   
+    private NetworkClient _networkClient;
     private JoinAllocation _joinAllocation;
     public async UniTask<bool> InitAsync()
     {
         await UnityServices.InitializeAsync();
+
+        _networkClient = new NetworkClient(NetworkManager.Singleton);
 
         AuthenticationState authenticationState = await AuthenticationHandler.DoAuth();
 
@@ -48,7 +52,8 @@ public class ClientGameManager
 
         UserData userData = new UserData
         {
-            UserName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name")
+            UserName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name"),
+            UserAuthId = AuthenticationService.Instance.PlayerId
         };
 
         string payload = JsonUtility.ToJson(userData);

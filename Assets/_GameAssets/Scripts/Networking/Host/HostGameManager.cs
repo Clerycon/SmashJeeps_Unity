@@ -5,6 +5,7 @@ using System.Text;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using Unity.Services.Authentication;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
@@ -81,7 +82,8 @@ public class HostGameManager
 
         UserData userData = new UserData
         {
-            UserName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name")
+            UserName = PlayerPrefs.GetString(Consts.PlayerData.PLAYER_NAME, "No_Name"),
+            UserAuthId = AuthenticationService.Instance.PlayerId
         };
 
         string payload = JsonUtility.ToJson(userData);

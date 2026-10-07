@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Text;
 using Unity.Netcode;
 using UnityEngine;
@@ -6,11 +8,29 @@ public class NetworkServer
 {
 
     private NetworkManager _networkManager;
+    private Dictionary<ulong, string> _clientIdToAuthDictionary = new Dictionary<ulong, string>();
+    private Dictionary<string, UserData> _authIdToUserDataDictionary = new Dictionary<string, UserData>();
     public NetworkServer(NetworkManager networkManager)
     {
         _networkManager = networkManager;
 
         networkManager.ConnectionApprovalCallback += ApprovalCheck;
+
+        networkManager.OnServerStarted += OnServerReady;
+    }
+
+    private void OnServerReady()
+    {
+        _networkManager.OnClientDisconnectCallback += OnClientDisconnectCallback;
+    }
+
+    private void OnClientDisconnectCallback(ulong clientId)
+    {
+        if(_clientIdToAuthDictionary.TryGetValue(clientId, out string authId))
+        {
+            _clientIdToAuthDictionary.Remove(clientId);
+            _authIdToUserDataDictionary.Remove(authId);
+        }
     }
 
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request,
@@ -18,6 +38,9 @@ public class NetworkServer
     {
         string payload = Encoding.UTF8.GetString(request.Payload);
         UserData userData = JsonUtility.FromJson<UserData>(payload);
+
+        _clientIdToAuthDictionary[request.ClientNetworkId] = userData.UserAuthId;
+        _authIdToUserDataDictionary[userData.UserAuthId] = userData; 
 
         response.Approved = true;
         response.CreatePlayerObject = true;
@@ -29,4 +52,5 @@ public class NetworkServer
 public class UserData
 {
     public string UserName;
+    public string UserAuthId;
 }
