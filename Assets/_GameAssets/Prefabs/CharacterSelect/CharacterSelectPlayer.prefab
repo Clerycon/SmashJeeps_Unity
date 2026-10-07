@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2541393296617998042}
   - component: {fileID: 7342610615112419264}
+  - component: {fileID: 5301524728691651910}
   m_Layer: 0
   m_Name: CharacterSelectPlayer
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1948944150
+  GlobalObjectIdHash: 3674415582
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -60,6 +61,22 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &5301524728691651910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841374936571198754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10f38ba4cf116a4f91e5f769a8f0828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectPlayer
+  ShowTopMostFoldoutHeaderGroup: 1
+  _playerNameText: {fileID: 3104715336484875950}
+  _readyGameObject: {fileID: 5712588127566111465}
+  _kickButton: {fileID: 618940911170325507}
 --- !u!1 &1532828926976078710
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Unity.Netcode;
-using UnityEditor.PackageManager;
-using UnityEngine;
 
 public class CharacterSelectReady : NetworkBehaviour
 {
+    public static CharacterSelectReady Instance {get; private set;}
     public event Action OnReadyChanged;
     public event Action OnUnreadyChanged;
     public event Action OnAllPlayerReady;
     private Dictionary<ulong, bool> _playerReadyDictionary = new Dictionary<ulong, bool>();
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     public override void OnNetworkSpawn()
     {
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
