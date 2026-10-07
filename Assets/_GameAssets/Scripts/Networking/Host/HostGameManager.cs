@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -13,7 +14,7 @@ using Unity.Services.Relay.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HostGameManager
+public class HostGameManager : IDisposable
 {
     private const int MAX_CONNECTIONS = 4; 
 
@@ -106,6 +107,28 @@ public class HostGameManager
         }
     }
 
+    public async void ShutDown()
+    {
+        HostSingleton.Instance.StopCoroutine(nameof(HeartbeatLobby));
 
-    
+        if (!string.IsNullOrEmpty(_lobbyId))
+        {
+            try
+            {
+                await LobbyService.Instance.DeleteLobbyAsync(_lobbyId);
+            }
+            catch (LobbyServiceException lobbyServiceException)
+            {
+                Debug.Log(lobbyServiceException);
+                return;
+            }
+        }
+
+        NetworkServer?.Dispose();
+    }
+
+    public void Dispose()
+    {
+        ShutDown();
+    }
 }
