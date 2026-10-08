@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualController
   ShowTopMostFoldoutHeaderGroup: 1
   _playerController: {fileID: 1068297795016973118}
+  _characterSelectVisual: {fileID: 4329085226277977013}
   _playerVisualTransform: {fileID: 5248103996177824280}
   _playerCollider: {fileID: 7932560635745456024}
   _wheelFrontLeft: {fileID: 1783516885988421133}
@@ -480,6 +481,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6678453635988117157, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
   m_PrefabInstance: {fileID: 7410235763640461276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4329085226277977013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6539915201576164457, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
+  m_PrefabInstance: {fileID: 7410235763640461276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888570cc95b48954195d6186ffa01726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectVisual
 --- !u!4 &5248103996177824280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3315617914384801220, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}

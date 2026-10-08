@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerVisualController : NetworkBehaviour
 {
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private CharacterSelectVisual _characterSelectVisual;
     [SerializeField] private Transform _playerVisualTransform;
     [SerializeField] private Collider _playerCollider;
     [SerializeField] private Transform _wheelFrontLeft, _wheelFrontRight, _wheelBackLeft, _wheelBackRight;
@@ -41,6 +42,9 @@ public class PlayerVisualController : NetworkBehaviour
     {
         _wheelFrontLeftRoll = _wheelFrontLeft.localRotation;
         _wheelFrontRightRoll = _wheelBackRight.localRotation;
+
+        PlayerDataSerializable playerData = MultiplayerGameManager.Instance.GetPlayerDataFromClientId(OwnerClientId);
+        _characterSelectVisual.SetPlayerColor(MultiplayerGameManager.Instance.GetPlayerColor(playerData.ColorId));
     }
 
     private void Update()
