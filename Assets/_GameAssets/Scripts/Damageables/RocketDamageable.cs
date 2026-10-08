@@ -64,4 +64,9 @@ public class RocketDamageable : NetworkBehaviour, IDamageable
     {
         return _mysteryBoxSkill.SkillData.RespawnTimer;
     }
+
+    public int GetDamageAmount()
+    {
+        return _mysteryBoxSkill.SkillData.DamageAmount;
+    }
 }

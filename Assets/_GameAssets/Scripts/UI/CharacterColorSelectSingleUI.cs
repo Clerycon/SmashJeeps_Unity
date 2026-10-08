@@ -42,4 +42,10 @@ public class CharacterColorSelectSingleUI : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        MultiplayerGameManager.Instance.OnPlayerDataNetworkListChanged -= 
+            MultiplayerGameManager_OnPlayerDataNetworkListChanged;
+    }
+
 }

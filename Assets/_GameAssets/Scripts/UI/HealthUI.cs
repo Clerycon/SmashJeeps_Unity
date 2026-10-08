@@ -1,16 +1,20 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static HealthUI Instance { get; private set; }
+    [SerializeField] private RectTransform _healthBarTransform;
+    
+    [SerializeField] private float _animationDuration;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Instance = this;
+    }
+    public void SetHealth(int health, int maxHealth)
+    {
+        _healthBarTransform.DOScaleX((float)health / maxHealth, _animationDuration).SetEase(Ease.Linear);
     }
 }

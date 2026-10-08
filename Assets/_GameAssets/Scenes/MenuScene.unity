@@ -1839,6 +1839,7 @@ MonoBehaviour:
   _lobbiesBackgroundTransform: {fileID: 2063885595}
   _joinCodeInputField: {fileID: 1067911086}
   _lobbiesListUI: {fileID: 319184508}
+  _welcomeText: {fileID: 1602796189}
   _animationDuration: 0.5
 --- !u!1 &1405468776
 GameObject:

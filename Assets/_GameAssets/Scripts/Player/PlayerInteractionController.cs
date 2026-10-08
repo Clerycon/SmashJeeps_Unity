@@ -7,6 +7,7 @@ public class PlayerInteractionController : NetworkBehaviour
 {
     private PlayerSkillController _playerSkillController;
     private PlayerController _playerController;
+    private PlayerHealthController _playerHealthController;
 
     private bool _isCrashed;
     private bool _isShieldActive;
@@ -17,6 +18,7 @@ public class PlayerInteractionController : NetworkBehaviour
 
         _playerSkillController = GetComponent<PlayerSkillController>();
         _playerController = GetComponent<PlayerController>();
+        _playerHealthController = GetComponent<PlayerHealthController>();
 
         _playerController.OnVehicleCrashed += PlayerController_OnVehicleCrashed;
     }
@@ -73,6 +75,7 @@ public class PlayerInteractionController : NetworkBehaviour
     private void CrashTheVehicle(IDamageable damageable)
     {
         damageable.Damage(_playerController);
+        _playerHealthController.TakeDamage(damageable.GetDamageAmount());
         SetKillerUIRpc(damageable.GetKillerClientId(), 
             RpcTarget.Single(damageable.GetKillerClientId(), RpcTargetUse.Temp));
         SpawnerManager.Instance.RespawnPlayer(damageable.GetRespawnTimer(), OwnerClientId);
@@ -91,6 +94,7 @@ public class PlayerInteractionController : NetworkBehaviour
     {
         enabled = true;
         _isCrashed = false;
+        _playerHealthController.RestartHealth();
     }
 
     public void SetShieldActive(bool active) => _isShieldActive = active;

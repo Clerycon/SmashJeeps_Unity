@@ -5337,6 +5337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80af30f7a9975314ab52cb0c00cdab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
+  _healthBarTransform: {fileID: 1672389989}
+  _animationDuration: 0.75
 --- !u!1 &1825731028
 GameObject:
   m_ObjectHideFlags: 0
