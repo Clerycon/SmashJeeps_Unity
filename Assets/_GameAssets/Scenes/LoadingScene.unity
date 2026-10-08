@@ -223,6 +223,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerGameManager
   ShowTopMostFoldoutHeaderGroup: 1
+  _playerColorList:
+  - {r: 0.8962264, g: 0.7903591, b: 0, a: 1}
+  - {r: 0.05534601, g: 0.8301887, b: 0, a: 1}
+  - {r: 0.754717, g: 0, b: 0, a: 1}
+  - {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  - {r: 0, g: 0.745283, b: 0.67840964, a: 1}
+  - {r: 0.5106951, g: 0, b: 0.8666667, a: 1}
+  - {r: 0, g: 0.22180064, b: 0.8396226, a: 1}
+  - {r: 0.8584906, g: 0, b: 0.67463076, a: 1}
+  - {r: 0.8235295, g: 0.4117647, b: 0.1176471, a: 1}
+  - {r: 0.2924528, g: 0, b: 0, a: 1}
 --- !u!1 &249458369
 GameObject:
   m_ObjectHideFlags: 0

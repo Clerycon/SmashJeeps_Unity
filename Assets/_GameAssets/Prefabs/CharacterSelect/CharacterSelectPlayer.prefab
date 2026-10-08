@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3674415582
+  GlobalObjectIdHash: 963339887
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -74,9 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectPlayer
   ShowTopMostFoldoutHeaderGroup: 1
+  _playerIndex: 0
   _playerNameText: {fileID: 3104715336484875950}
   _readyGameObject: {fileID: 5712588127566111465}
   _kickButton: {fileID: 618940911170325507}
+  _characterSelectVisual: {fileID: 565811802397511270}
 --- !u!1 &1532828926976078710
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,13 +485,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7483637185884975724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5873965113455544907}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -636,8 +638,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3315617914384801220, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7046337152474454241}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2190809292383468490, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565811802397511270}
   m_SourcePrefab: {fileID: 100100000, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
+--- !u!23 &1926988262867078791 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5162903575012400264, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
+  m_PrefabInstance: {fileID: 6708209432527852047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4863616698329819589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2190809292383468490, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}
+  m_PrefabInstance: {fileID: 6708209432527852047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565811802397511270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863616698329819589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888570cc95b48954195d6186ffa01726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectVisual
+  _baseMeshRenderer: {fileID: 1926988262867078791}
 --- !u!4 &8294267131771260875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3315617914384801220, guid: 059d46e2d86f7494681f9d52332ea505, type: 3}

@@ -131,4 +131,11 @@ public class HostGameManager : IDisposable
     {
         ShutDown();
     }
+
+    public string GetJoinCode()
+    {
+        return _joinCode;
+    }
+
+    
 }

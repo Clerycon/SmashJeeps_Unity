@@ -487,6 +487,9 @@ MonoBehaviour:
   _readyText: {fileID: 1415191020}
   _greenButtonSprite: {fileID: -1428609198, guid: 3f382c7e313b8d445aa2a67ad287df26, type: 3}
   _redButtonSprite: {fileID: -1357662861, guid: 435c301b9f8e3f34c9a65f42764b15f9, type: 3}
+  _joinCodeText: {fileID: 10267808}
+  _copiedImage: {fileID: 1401468690}
+  _tickSprite: {fileID: 21300000, guid: 428a23dc33af54c669b1a744aee311fc, type: 3}
 --- !u!1 &232014346
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -632,6 +639,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -904,6 +915,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1338,8 +1353,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585545}
     - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: m_InScenePlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1041444051
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1948944150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1354,6 +1381,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1960,6 +1991,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2456,7 +2491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2745,8 +2780,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585545}
     - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: m_InScenePlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3555170911
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1948944150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2818,6 +2865,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2920,6 +2971,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3252,6 +3307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3475,6 +3534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 650918191}
     m_Modifications:
+    - target: {fileID: 657584106678493996, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
+      propertyPath: _colorId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1882527723043794197, guid: 1aa172a6288b1ea41bfc924d17d974a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3658,8 +3721,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585545}
     - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: m_InScenePlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3942147056
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1948944150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4000,8 +4075,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585545}
     - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: m_InScenePlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 963339887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342610615112419264, guid: c857c050ab16c8f498142cb4c6267765, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1948944150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

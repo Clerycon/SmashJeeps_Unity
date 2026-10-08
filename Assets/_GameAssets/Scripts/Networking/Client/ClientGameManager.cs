@@ -14,6 +14,7 @@ public class ClientGameManager : IDisposable
 {   
     private NetworkClient _networkClient;
     private JoinAllocation _joinAllocation;
+    private string _joinCode;
     public async UniTask<bool> InitAsync()
     {
         await UnityServices.InitializeAsync();
@@ -71,5 +72,15 @@ public class ClientGameManager : IDisposable
     public void Disconnect()
     {
         _networkClient.Disconnect();
+    }
+
+    public void SetLobbyJoinCode(string joinCode)
+    {
+        _joinCode = joinCode;
+    }
+
+    public string GetJoinCode()
+    {
+        return _joinCode;
     }
 }
