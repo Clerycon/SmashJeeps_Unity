@@ -20,10 +20,10 @@ public class MineDamageable : NetworkBehaviour, IDamageable
     {
         DestroyRpc();
     }
-    public void Damage(PlayerController playerController)
+    public void Damage(PlayerController playerController, string playerName)
     {
         playerController.CrashVehicle();
-        KillScreenUI.Instance.SetSmashedUI("Clerycon", _mysteryBoxSkill.SkillData.RespawnTimer);
+        KillScreenUI.Instance.SetSmashedUI(playerName, _mysteryBoxSkill.SkillData.RespawnTimer);
         DestroyRpc();
     }
 
@@ -67,5 +67,17 @@ public class MineDamageable : NetworkBehaviour, IDamageable
     public int GetDamageAmount()
     {
         return _mysteryBoxSkill.SkillData.DamageAmount;
+    }
+
+    public string GetKillerName()
+    {
+        ulong killerClientId = GetKillerClientId();
+        if(NetworkManager.Singleton.ConnectedClients.TryGetValue(killerClientId, out var killerClient))
+        {
+            string playerName = killerClient.PlayerObject.GetComponent<PlayerNetworkController>().PlayerName.Value.ToString();
+            return playerName;
+        }
+
+        return string.Empty;
     }
 }

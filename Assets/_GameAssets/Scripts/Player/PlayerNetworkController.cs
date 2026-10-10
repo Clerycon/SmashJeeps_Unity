@@ -14,7 +14,7 @@ public class PlayerNetworkController : NetworkBehaviour
     private PlayerSkillController _playerSkillController;
     private PlayerInteractionController _playerInteractionController;
 
-    private NetworkVariable<FixedString32Bytes> _playerName = new NetworkVariable<FixedString32Bytes>();
+    public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
     public override void OnNetworkSpawn()
     {
         _playerCamera.gameObject.SetActive(IsOwner);
@@ -22,7 +22,7 @@ public class PlayerNetworkController : NetworkBehaviour
         if (IsServer)
         {
             UserData userData = HostSingleton.Instance.HostGameManager.NetworkServer.GetUserDataByClientId(OwnerClientId);
-            _playerName.Value = userData.UserName;
+            PlayerName.Value = userData.UserName;
             SetPlayerNameRpc();
         }
 
@@ -43,6 +43,6 @@ public class PlayerNetworkController : NetworkBehaviour
     [Rpc(SendTo.ClientsAndHost)]
     private void SetPlayerNameRpc()
     {
-        _playerNameText.text = _playerName.Value.ToString();
+        _playerNameText.text = PlayerName.Value.ToString();
     }
 }

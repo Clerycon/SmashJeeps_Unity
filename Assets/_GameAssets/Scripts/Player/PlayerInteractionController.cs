@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PlayerInteractionController : NetworkBehaviour
     private PlayerSkillController _playerSkillController;
     private PlayerController _playerController;
     private PlayerHealthController _playerHealthController;
+    private PlayerNetworkController _playerNetworkController;
 
     private bool _isCrashed;
     private bool _isShieldActive;
@@ -19,7 +21,7 @@ public class PlayerInteractionController : NetworkBehaviour
         _playerSkillController = GetComponent<PlayerSkillController>();
         _playerController = GetComponent<PlayerController>();
         _playerHealthController = GetComponent<PlayerHealthController>();
-
+        _playerNetworkController = GetComponent<PlayerNetworkController>();
         _playerController.OnVehicleCrashed += PlayerController_OnVehicleCrashed;
     }
 
@@ -74,19 +76,19 @@ public class PlayerInteractionController : NetworkBehaviour
 
     private void CrashTheVehicle(IDamageable damageable)
     {
-        damageable.Damage(_playerController);
+        damageable.Damage(_playerController, damageable.GetKillerName());
         _playerHealthController.TakeDamage(damageable.GetDamageAmount());
-        SetKillerUIRpc(damageable.GetKillerClientId(), 
+        SetKillerUIRpc(damageable.GetKillerClientId(), _playerNetworkController.PlayerName.Value,
             RpcTarget.Single(damageable.GetKillerClientId(), RpcTargetUse.Temp));
         SpawnerManager.Instance.RespawnPlayer(damageable.GetRespawnTimer(), OwnerClientId);
     }
 
     [Rpc(SendTo.SpecifiedInParams)]
-    private void SetKillerUIRpc(ulong killerClientId, RpcParams rpcParams)
+    private void SetKillerUIRpc(ulong killerClientId, FixedString32Bytes playerName, RpcParams rpcParams)
     {
         if(NetworkManager.Singleton.ConnectedClients.TryGetValue(killerClientId, out var killerClient))
         {
-            KillScreenUI.Instance.SetSmashUI("Clerycon");
+            KillScreenUI.Instance.SetSmashUI(playerName.ToString());
         }
     }
 
