@@ -197,7 +197,7 @@ MonoBehaviour:
   _raycastDistance: 0.5
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!114 &2482661227847966581
 MonoBehaviour:
   m_ObjectHideFlags: 0
