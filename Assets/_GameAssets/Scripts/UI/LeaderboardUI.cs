@@ -163,6 +163,27 @@ public class LeaderboardUI : NetworkBehaviour
         };
     }
 
+    public List<LeaderboardEntitiesSerializable> GetLeaderboardData()
+    {
+        List<LeaderboardEntitiesSerializable> leaderboardData = new List<LeaderboardEntitiesSerializable>();
+        foreach(var entity in _leaderboardEntityList)
+        {
+            leaderboardData.Add(entity);
+        }
+
+        return leaderboardData;
+    }
+
+    public string GetWinnersName()
+    {
+        if(_leaderboardRankingList.Count > 0)
+        {
+            return _leaderboardRankingList[0].GetPlayerName();
+        }
+
+        return "No Winner";
+    }
+
     private void HandlePlayerDespawned(PlayerNetworkController playerNetworkController)
     {
         if(_leaderboardEntityList == null) { return; }
