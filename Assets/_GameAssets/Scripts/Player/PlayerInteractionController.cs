@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -89,6 +87,7 @@ public class PlayerInteractionController : NetworkBehaviour
         if(NetworkManager.Singleton.ConnectedClients.TryGetValue(killerClientId, out var killerClient))
         {
             KillScreenUI.Instance.SetSmashUI(playerName.ToString());
+            killerClient.PlayerObject.GetComponent<PlayerScoreController>().AddScore(1);
         }
     }
 

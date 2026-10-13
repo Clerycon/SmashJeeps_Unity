@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Cinemachine;
 using Unity.Collections;
@@ -6,13 +7,17 @@ using UnityEngine;
 
 public class PlayerNetworkController : NetworkBehaviour
 {
-    [SerializeField] private CinemachineCamera _playerCamera;
+    public static event Action<PlayerNetworkController> OnPlayerSpawned;
+    public static event Action<PlayerNetworkController> OnPlayerDespawned;
 
+    [SerializeField] private CinemachineCamera _playerCamera;
     [SerializeField] private TMP_Text _playerNameText;
+    [SerializeField] private PlayerScoreController _playerScoreController;
     
     private PlayerController _playerController;
     private PlayerSkillController _playerSkillController;
     private PlayerInteractionController _playerInteractionController;
+    
 
     public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
     public override void OnNetworkSpawn()
@@ -24,6 +29,8 @@ public class PlayerNetworkController : NetworkBehaviour
             UserData userData = HostSingleton.Instance.HostGameManager.NetworkServer.GetUserDataByClientId(OwnerClientId);
             PlayerName.Value = userData.UserName;
             SetPlayerNameRpc();
+
+            OnPlayerSpawned?.Invoke(this);
         }
 
         if(!IsOwner) { return; }
@@ -44,5 +51,18 @@ public class PlayerNetworkController : NetworkBehaviour
     private void SetPlayerNameRpc()
     {
         _playerNameText.text = PlayerName.Value.ToString();
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if (IsServer)
+        {
+            OnPlayerDespawned?.Invoke(this);
+        }
+    }
+
+    public PlayerScoreController GetPlayerScoreController()
+    {
+        return _playerScoreController;
     }
 }
